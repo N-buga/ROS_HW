@@ -1,0 +1,13 @@
+<launch>
+	<node pkg="turtlesim" type="turtlesim_node" name="turtle_key">
+		<remap from="turtle1/pose" to="turtle_key/pose" />
+	</node>
+	<node pkg="turtlesim" type="turtlesim_node" name="turtle_sync">
+		<remap from="turtle1/cmd_vel" to="turtle/repeat"/>
+		<remap from="turtle1/pose" to="turtle_sync/pose"/>
+	</node>
+	<node pkg="turtlesim" type="turtle_teleop_key" name="controller">
+	</node> 
+	<node pkg="ex_pkg" type="repeat.py" name="transmitter">
+	</node>
+</launch>
